@@ -1,6 +1,5 @@
 <template name="categories">
 <head>
-
  <title>Categories</title>
      <style>
     .relative{
@@ -8,10 +7,10 @@
     }
     .absolute-text{
       position:absolute; bottom:0; font-size:30px; font-family:"verdana"; background:rgba(251,251,251,0.5);
-      padding:10px 20px; width:100%; text-align:center;
+      padding:10px 10px; width:100%; text-align:center; color: black; font-weight: bold;
     }
     .absolute-text a{
-    font-size:20px; color: black; font-family: "Verdana"; font-weight: bold;
+    font-size:20px; color: pink; font-family: "Verdana"; font-weight: bold;
     }
     .container-title {
       text-align: center;
@@ -24,24 +23,25 @@
     column-count: 2;
     -webkit-column-fill: auto; /* Chrome, Safari, Opera */
     column-fill: auto;
+    display: inline-grid;
+    }
+    .picture {
+      
     }
     </style>
 
 </head>
-
 <body>
 <div class = "container">
   <div class = "container-title"> 
-  <p><u>Categories </u></p>
+   <img class="picture" src="images/categories.png" height="70%">
   </div>
 
-    <!-- HTML -->
   <div class="relative">
   <a href="{{pathFor 'career'}}" class="btn primary">
   <img class="picture" src="images/career.jpg" alt="" width="550">
   <p class="absolute-text">Career</p></a>
   </div>
-
 
    <div class="relative">
    <a href="{{pathFor 'education'}}" class="btn primary">

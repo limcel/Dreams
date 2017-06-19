@@ -1,7 +1,7 @@
 <template name="postSubmit">
   <form class="main form page">
   <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+    <button name="category" id="category" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="#">Career</a></li>
@@ -15,10 +15,11 @@
     </ul>
   </div>
   <br>
+  <!-- need to store category -->
 
   <div class="postImage">
   <label class="control-label">Select File</label>
-  <input id="input-1" type="file" class="file">
+  <input name="image" id="input-1" type="file" class="file">
   </div>
   <br>
 
@@ -30,30 +31,30 @@
       </div>
     </div>
     <div class="form-group {{errorClass 'summary'}}">
-      <label class="control-label" for="url">Summary</label>
+      <label class="control-label" for="summary">Summary</label>
       <div class="controls">
-          <input name="url" id="url" type="text" value="" placeholder="Brief summary" class="form-control"/>
+          <input name="summary" id="summary" type="text" value="" placeholder="Brief summary" class="form-control"/>
           <span class="help-block">{{errorMessage 'summary'}}</span>
       </div>
     </div>
     <div class="form-group {{errorClass 'introduction'}}">
-      <label class="control-label" for="url">Introduction to project</label>
+      <label class="control-label" for="introduction">Introduction to project</label>
       <div class="controls">
-          <input name="url" id="url" type="text" value="" placeholder="Short description of why you want to fulfill this" class="form-control"/>
+          <input name="introduction" id="introduction" type="text" value="" placeholder="Short description of why you want to fulfill this" class="form-control"/>
           <span class="help-block">{{errorMessage 'introduction'}}</span>
       </div>
     </div>
     <div class="form-group {{errorClass 'list'}}">
-      <label class="control-label" for="url">List of items required</label>
+      <label class="control-label" for="list">List of items required</label>
       <div class="controls">
-          <input name="url" id="url" type="text" value="" placeholder="All the items you need to accomplish this" class="form-control"/>
+          <input name="list" id="list" type="text" value="" placeholder="All the items you need to accomplish this" class="form-control"/>
           <span class="help-block">{{errorMessage 'list'}}</span>
       </div>
     </div>
     <div class="form-group {{errorClass 'tags'}}">
-      <label class="control-label" for="url">Related Tags</label>
+      <label class="control-label" for="tags">Related Tags</label>
       <div class="controls">
-          <input type="text" data-role="tagsinput" placeholder="E.g. guitar, soccer"> 
+          <input name="tags" id="tags" type="text" data-role="tagsinput" placeholder="E.g. guitar, soccer"> 
           <span class="help-block">{{errorMessage 'tags'}}</span>
       </div>
     </div>

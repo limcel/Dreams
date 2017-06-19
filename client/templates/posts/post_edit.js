@@ -18,8 +18,12 @@ Template.postEdit.events({
     var currentPostId = this._id;
     
     var postProperties = {
-      url: $(e.target).find('[name=url]').val(),
-      title: $(e.target).find('[name=title]').val()
+      category: $(e.target).find('[name=category]').val(),
+      title: $(e.target).find('[name=title]').val(),
+      summary: $(e.target).find('[name=summary]').val(),
+      introduction: $(e.target).find('[name=introduction]').val(),
+      list: $(e.target).find('[name=list]').val(),
+      tags: $(e.target).find('[name=tags]').val()
     }
     
     var errors = validatePost(postProperties);

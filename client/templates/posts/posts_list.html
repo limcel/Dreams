@@ -1,9 +1,35 @@
 <template name="postsList">
   <div class="posts page">
-    <div class="wrapper">
-      {{#each posts}}
-        {{> postItem}}
-      {{/each}}
+    <div class="container">
+      <div class="wrapper">
+
+        <div class="relative">
+          <a href="#" class="btn primary"></a>
+          <img class="picture" src="images/bg3.jpg" width="1150" height="500">
+          <p class="absolute-text">Making Dreams Come True</p>
+        
+          <style>
+          .relative{
+          position:relative; width:600px; margin-top: -1.5%; margin-left: -1%;
+          }
+          .absolute-text{
+          position:absolute; 
+          bottom:0; 
+          font-size:40px; 
+          font-family:"verdana";
+          background:rgba(251,251,251,0.5);
+          width:100%; 
+          text-align: center;
+          padding-top: 3%;
+          padding-bottom: 3%;
+          }
+          </style>
+        </div>
+
+          {{#each posts}}
+          {{> postItem}}
+        {{/each}}
+      </div>
     </div>
     
     {{#if nextPath}}

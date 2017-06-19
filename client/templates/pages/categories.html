@@ -26,7 +26,12 @@
     display: inline-grid;
     }
     .picture {
-      
+      float: right;
+      align-items: right;
+    }
+    .picture-left {
+      align-items: left;
+      float:left;
     }
     </style>
 
@@ -34,7 +39,7 @@
 <body>
 <div class = "container">
   <div class = "container-title"> 
-   <img class="picture" src="images/categories.png" height="70%">
+   <img class="picture-left" src="images/categories.png" height="70%">
   </div>
 
   <div class="relative">
@@ -45,7 +50,7 @@
 
    <div class="relative">
    <a href="{{pathFor 'education'}}" class="btn primary">
-  <img class="picture" src="images/education.jpg" alt="" width="550">
+  <img class="picture-left" src="images/education.jpg" alt="" width="550">
   <p class="absolute-text">Education</p></a>
   </div>
 
@@ -57,7 +62,7 @@
 
   <div class="relative">
    <a href="{{pathFor 'financial'}}" class="btn primary">
-  <img class="picture" src="images/financial.jpg" alt="" width="550">
+  <img class="picture-left" src="images/financial.jpg" alt="" width="550">
   <p class="absolute-text">Financial</p></a>
   </div>
 
@@ -69,7 +74,7 @@
 
   <div class="relative">
   <a href="{{pathFor 'physical'}}" class="btn primary">
-  <img class="picture" src="images/physical.jpg" alt="" width="550">
+  <img class="picture-left" src="images/physical.jpg" alt="" width="550">
   <p class="absolute-text">Physical</p></a>
   </div>
 
@@ -81,7 +86,7 @@
 
   <div class="relative">
   <a href="{{pathFor 'spiritual'}}" class="btn primary">
-  <img class="picture" src="images/spiritual.jpg" alt="" width="550">
+  <img class="picture-left" src="images/spiritual.jpg" alt="" width="550">
   <p class="absolute-text">Spiritual</p></a>
   </div>
 

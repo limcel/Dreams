@@ -14,9 +14,8 @@ Template.postSubmit.helpers({
 Template.postSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
-    
     var post = {
-      category: $(e.target).find('[name=category]').val(),
+      category: $("#category").val(),
       title: $(e.target).find('[name=title]').val(),
       summary: $(e.target).find('[name=summary]').val(),
       introduction: $(e.target).find('[name=introduction]').val(),
@@ -25,9 +24,9 @@ Template.postSubmit.events({
     };
     
     var errors = validatePost(post);
-    if (errors.title || errors.url)
+    if (errors.category || errors.title || errors.summary || errors.introduction || errors.list) {
       return Session.set('postSubmitErrors', errors);
-    
+    }
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
       if (error)

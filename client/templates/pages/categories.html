@@ -17,77 +17,83 @@
       font-size: 50px;
       color: black;
     }
-    .container{
-    column-fill: auto;
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    column-count: 2;
-    -webkit-column-fill: auto; /* Chrome, Safari, Opera */
-    column-fill: auto;
-    display: inline-grid;
-    }
+
     .picture {
       float: right;
       align-items: right;
+       padding-bottom: 10px;
     }
     .picture-left {
       align-items: left;
       float:left;
+      padding-bottom: 10px;
     }
+    .container-inner {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+    padding-bottom: 40px;
+}
     </style>
 
 </head>
 <body>
 <div class = "container">
   <div class = "container-title"> 
-   <img class="picture-left" src="images/categories.png" height="70%">
+   <img class="header" src="images/categories.png" height="100">
   </div>
 
+  <div class = "container-inner">
   <div class="relative">
   <a href="{{pathFor 'career'}}" class="btn primary">
-  <img class="picture" src="images/career.jpg" alt="" width="550">
+  <img class="picture-left" src="images/career.jpg" alt="" width="550">
   <p class="absolute-text">Career</p></a>
   </div>
 
    <div class="relative">
    <a href="{{pathFor 'education'}}" class="btn primary">
-  <img class="picture-left" src="images/education.jpg" alt="" width="550">
+  <img class="picture" src="images/education.jpg" alt="" width="550">
   <p class="absolute-text">Education</p></a>
   </div>
 
    <div class="relative">
    <a href="{{pathFor 'family'}}" class="btn primary">
-  <img class="picture" src="images/family.jpg" alt="" width="550" float="right">
+  <img class="picture-left" src="images/family.jpg" alt="" width="550" float="right">
   <p class="absolute-text">Family</p></a>
   </div>
 
   <div class="relative">
    <a href="{{pathFor 'financial'}}" class="btn primary">
-  <img class="picture-left" src="images/financial.jpg" alt="" width="550">
+  <img class="picture" src="images/financial.jpg" alt="" width="550">
   <p class="absolute-text">Financial</p></a>
   </div>
 
   <div class="relative">
   <a href="{{pathFor 'fun'}}" class="btn primary">
-  <img class="picture" src="images/fun.jpg" alt="" width="550">
+  <img class="picture-left" src="images/fun.jpg" alt="" width="550" height="350">
   <p class="absolute-text">Fun</p></a>
   </div>
 
   <div class="relative">
   <a href="{{pathFor 'physical'}}" class="btn primary">
-  <img class="picture-left" src="images/physical.jpg" alt="" width="550">
+  <img class="picture" src="images/physical.jpg" alt="" width="550">
   <p class="absolute-text">Physical</p></a>
   </div>
 
   <div class="relative">
   <a href="{{pathFor 'social'}}" class="btn primary">
-  <img class="picture" src="images/social.jpg" alt="" width="550">
+  <img class="picture-left" src="images/social.jpg" alt="" width="550">
   <p class="absolute-text">Social</p></a>
   </div>
 
   <div class="relative">
   <a href="{{pathFor 'spiritual'}}" class="btn primary">
-  <img class="picture-left" src="images/spiritual.jpg" alt="" width="550">
+  <img class="picture" src="images/spiritual.jpg" alt="" width="550" height="355">
   <p class="absolute-text">Spiritual</p></a>
+  </div>
   </div>
 
 </div>

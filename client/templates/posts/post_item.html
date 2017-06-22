@@ -1,8 +1,11 @@
 <template name="postItem">
+  <br>
   <div class="post">
     <a href="#" class="upvote btn btn-default {{upvotedClass}}">⬆</a>
     <div class="post-content">
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+      <p><b> Category:</b> {{category}}</p>
+      <p><b> Summary:</b> {{summary}}</p>
       <p>
         {{pluralize votes "Vote"}},
         submitted by {{author}},

@@ -27,6 +27,7 @@ Template.postSubmit.events({
     if (errors.category || errors.title || errors.summary || errors.introduction || errors.list) {
       return Session.set('postSubmitErrors', errors);
     }
+
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
       if (error)

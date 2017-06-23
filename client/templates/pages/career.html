@@ -26,9 +26,13 @@
   <img class="picture" src="images/career.jpg" width="100%" height="500">
   <p class="absolute-text">Career</p>
   </div>
-
+<br>
   <div class="posts-container">
   <!-- code here for displaying the posts in that category-->
+  {{#each posts}}
+      {{> postItem}}
+      <br><br><br><br><br><br><br><br><br>
+        {{/each}}
   </div>
 
 </div>

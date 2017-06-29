@@ -10,6 +10,10 @@ Meteor.publish('category', function(category) {
   return Posts.find();
 });
 
+Meteor.publish('userId', function(userId) {
+  return Posts.find();
+});
+
 Meteor.publish('singlePost', function(id) {
   check(id, String);
   return Posts.find(id);

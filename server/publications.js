@@ -1,3 +1,7 @@
+Meteor.publish("blogs", function(){
+  return Blogs.find({},{ sort: { timestamp:-1}, limit: 99});
+});
+
 Meteor.publish('posts', function(options) {
   check(options, {
     sort: Object,
@@ -18,7 +22,6 @@ Meteor.publish('singlePost', function(id) {
   check(id, String);
   return Posts.find(id);
 });
-
 
 Meteor.publish('comments', function(postId) {
   check(postId, String);

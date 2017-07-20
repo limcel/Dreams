@@ -1,6 +1,7 @@
 /*
 import handleChannelSwitch from '../../modules/handle-channel-switch';
 import sortMessages from '../../modules/sort-messages';
+import handleMessageInsert from '../../modules/handle-message-insert';
 
 [...]
 
@@ -19,6 +20,12 @@ Template.channel.helpers({
     if ( messages ) {
       return sortMessages( messages );
     }
+  }
+});
+
+Template.channel.events({
+  'keyup [name="message"]' ( event, template ) {
+    handleMessageInsert( event, template );
   }
 });
 */

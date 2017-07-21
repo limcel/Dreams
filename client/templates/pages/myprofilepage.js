@@ -1,7 +1,5 @@
-/*
 Template.myProfile.helpers({
  posts: function() {
- 	return Posts.find({this.userId});
+ 	return Posts.find({userId:this.userId});
  }
 });
-*/

@@ -1,10 +1,8 @@
-<template name = "messagePage">
-Hello
-<div class="form-group">
-      <label class="control-label" for="message">Message</label>
-      <div class="controls">
-          <input name="message" value="" placeholder="Type your message here" class="form-control"/>
-      </div>
+<template name="messagePage">
+    <div id="input" class="well">
+        <strong>Your message</strong>
+        <textarea rows="3" cols="100%" id="newMessage"></textarea> <br><br>
+        <input type="text" placeholder="Your username" id="username" /> <br><br>
+        <h4><a id="send">Send</a></h4>
     </div>
-   <input type="submit" value="Send" class="btn btn-primary"/>
 </template>

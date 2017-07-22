@@ -1,20 +1,45 @@
-Template.messgaePage.events({
-  'submit form': function(e) {
-    e.preventDefault();
-    var message = {
-      message: $(e.target).find('[name=message]').val(),
-    };
+Template.messagePage.events({
+    'click #send': function() {
+      var message = $('#newMessage').val();
+      var username = $('#username').val();
+      if (!message || !username) {
+        alert('Fill out both fields!');
+      }
+      console.log("here1");
 
-    Meteor.call('messageInsert', post, function(error, result) {
-      // display the error to the user and abort
-      if (error)
-        return throwError(error.reason);
-      
-      // show this result but route anyway
-      if (result.postExists)
-        throwError('This link has already been posted');
-      
-      Router.go('messagePage', {_id: result._id});  
+      Meteor.saveMessage({
+        message: message,
+        username: username
+      });
+    }
+});
+
+Meteor.saveMessage = function(content) {
+    var username = content.username;
+    var message = content.message;
+    if (!username || !message) {
+      return;
+    }
+    Messages.insert({
+      username: username,
+      message: message,
+      timestamp: Date.now()
+    }, function(err, id) {
+      if (err) {
+        alert('Something definitely went wrong!');
+      }
+      if (id) {
+        $('#newMessage').val('');
+        $('#username').val('');
+      }
     });
-  }
+};
+
+Messages.allow({
+    'insert': function(userId, doc) {
+      return true;
+    },
+    'remove': function(userId, doc) {
+      return false;
+    }
 });

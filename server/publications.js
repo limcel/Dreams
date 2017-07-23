@@ -28,6 +28,11 @@ Meteor.publish('comments', function(postId) {
   return Comments.find({postId: postId});
 });
 
+Meteor.publish('messages', function(postId) {
+  check(postId, String);
+  return Messages.find({postId: postId});
+});
+
 Meteor.publish('notifications', function() {
   return Notifications.find({userId: this.userId, read: false});
 });

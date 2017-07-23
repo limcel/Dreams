@@ -5,7 +5,9 @@ Template.messagePage.events({
       if (!message || !username) {
         alert('Fill out both fields!');
       }
-      console.log("here1");
+
+      console.log(message);
+      console.log(username);
 
       Meteor.saveMessage({
         message: message,
@@ -13,6 +15,7 @@ Template.messagePage.events({
       });
     }
 });
+
 
 Meteor.saveMessage = function(content) {
     var username = content.username;
@@ -42,4 +45,8 @@ Messages.allow({
     'remove': function(userId, doc) {
       return false;
     }
+});
+Messages.allow({
+ update: function(userId, post) { return ownsDocument(userId, post); },
+ remove: function(userId, post) { return ownsDocument(userId, post); }
 });

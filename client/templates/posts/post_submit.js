@@ -11,6 +11,7 @@ Template.postSubmit.helpers({
   }
 });
 
+
 Template.postSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -22,6 +23,8 @@ Template.postSubmit.events({
       list: $(e.target).find('[name=list]').val(),
       tags: $(e.target).find('[name=tags]').val()
     };
+
+      console.log(this.userID);
     
     var errors = validatePost(post);
     if (errors.category || errors.title || errors.summary || errors.introduction || errors.list) {
@@ -36,6 +39,7 @@ Template.postSubmit.events({
       // show this result but route anyway
       if (result.postExists)
         throwError('This link has already been posted');
+
       
       Router.go('postPage', {_id: result._id});  
     });

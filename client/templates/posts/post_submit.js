@@ -23,8 +23,7 @@ Template.postSubmit.events({
       list: $(e.target).find('[name=list]').val(),
       tags: $(e.target).find('[name=tags]').val()
     };
-
-      console.log(this.userID);
+/*find userID & put condition: if (userID.findOne == 1),route back to the url and dont allow postings */
     
     var errors = validatePost(post);
     if (errors.category || errors.title || errors.summary || errors.introduction || errors.list) {

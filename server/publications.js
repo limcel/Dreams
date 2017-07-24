@@ -28,21 +28,14 @@ Meteor.publish('comments', function(postId) {
   return Comments.find({postId: postId});
 });
 
-Meteor.publish('messages', function(postId) {
-  check(postId, String);
-  return Messages.find({postId: postId});
+Meteor.publish('messages', function() {
+  return Messages.find();
 });
 
 Meteor.publish('notifications', function() {
   return Notifications.find({userId: this.userId, read: false});
 });
 
-Meteor.publish( 'sidebar', function() {
-  return [
-    Channels.find(),
-    Meteor.users.find( { _id: { $ne: this.userId } }, { fields: { username: 1, 'profile.name': 1 } } )
-  ];
-});
 
 Meteor.publish( 'channel', function( isDirect, channel ) {
   check( isDirect, Boolean );

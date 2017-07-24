@@ -1,52 +1,70 @@
 Template.messagePage.events({
-    'click #send': function() {
+    'click #send': function(template) {
       var message = $('#newMessage').val();
-      var username = $('#username').val();
-      if (!message || !username) {
+      var sender = $('#sender').val();
+      if (!message || !sender) {
         alert('Fill out both fields!');
       }
 
       console.log(message);
-      console.log(username);
+      console.log(sender);
+      console.log(Meteor.user()._id);
 
       Meteor.saveMessage({
         message: message,
-        username: username
+        sender: sender,
+        postID: Router.current().params._id
       });
     }
 });
 
 
 Meteor.saveMessage = function(content) {
-    var username = content.username;
+    var sender = content.sender;
     var message = content.message;
-    if (!username || !message) {
+    var postID = content.postID;
+    if (!sender || !message || !postID) {
       return;
     }
-    Messages.insert({
-      username: username,
-      message: message,
-      timestamp: Date.now()
-    }, function(err, id) {
-      if (err) {
-        alert('Something definitely went wrong!');
-      }
-      if (id) {
-        $('#newMessage').val('');
-        $('#username').val('');
-      }
-    });
-};
 
-Messages.allow({
-    'insert': function(userId, doc) {
-      return true;
-    },
-    'remove': function(userId, doc) {
-      return false;
-    }
-});
-Messages.allow({
- update: function(userId, post) { return ownsDocument(userId, post); },
- remove: function(userId, post) { return ownsDocument(userId, post); }
+    var message = {
+      message: message,
+      sender: sender,
+      postID: postID
+      /*receiver: $(e.target).find('[name=receiver]').val(), */
+    };
+
+
+
+
+   Meteor.call('messageInsert', message, function(error, result) {
+      // display the error to the user and abort
+      if (error)
+        return throwError(error.reason);
+      
+      // show this result but route anyway
+      if (result.postExists)
+        throwError('This link has already been posted');
+
+      
+      //Router.go('postPage', {_id: result._id});  
+    });
+ };
+
+/*      postID: "BpTun4hz9f4v5wNXT",
+      userID: "kYR6KtuYiqHzxDPoX"
+    })
+    */
+
+ Template.messagePage.helpers({
+  ownPost: function() { //if-else case 
+
+      var findMessagers = Messages.find({postID: Router.current().params._id}).userId;
+
+  return this.userId === Meteor.userId();
+  },
+
+  messages: function() {
+    return Messages.find({postID: Router.current().params._id, userId: Meteor.user()._id});
+  }
 });

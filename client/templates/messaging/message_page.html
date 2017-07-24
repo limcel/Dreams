@@ -1,8 +1,19 @@
 <template name="messagePage">
     <div id="input" class="well">
+
+     <ul class="messages">
+      {{#each messages}}
+        {{> messageItem}}
+      {{/each}}
+    </ul>
+
+
         <strong>Your message</strong>
         <textarea rows="3" cols="100%" id="newMessage"></textarea> <br><br>
-        <input type="text" placeholder="Your username" id="username" /> <br><br>
+        <input type="text" placeholder="Your username" id="sender" /> <br><br>
         <h4><a id="send">Send</a></h4>
+
+     
+
     </div>
 </template>

@@ -18,7 +18,6 @@ Template.messagePage.events({
     }
 });
 
-
 Meteor.saveMessage = function(content) {
     var sender = content.sender;
     var message = content.message;
@@ -34,9 +33,6 @@ Meteor.saveMessage = function(content) {
       /*receiver: $(e.target).find('[name=receiver]').val(), */
     };
 
-
-
-
    Meteor.call('messageInsert', message, function(error, result) {
       // display the error to the user and abort
       if (error)
@@ -50,11 +46,6 @@ Meteor.saveMessage = function(content) {
       //Router.go('postPage', {_id: result._id});  
     });
  };
-
-/*      postID: "BpTun4hz9f4v5wNXT",
-      userID: "kYR6KtuYiqHzxDPoX"
-    })
-    */
 
  Template.messagePage.helpers({
   ownPost: function() { //if-else case 

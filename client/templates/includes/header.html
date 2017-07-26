@@ -33,7 +33,11 @@
         {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <a class="navbar-brand" href="{{pathFor 'myProfile'}}"><img src="/images/user-icon.png"/></a>
+      {{#if currentUser}}
+      <a class="navbar-brand" href="{{pathFor 'myProfile'}}"><img src="/images/user-icon.png"/></a>
+    {{else}}
+      
+    {{/if}}
            {{> loginButtons}}
       </ul>
     </div>

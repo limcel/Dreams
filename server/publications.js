@@ -32,11 +32,15 @@ Meteor.publish('messages', function() {
   return Messages.find();
 });
 
+Meteor.publish('profiles', function() {
+  return Profiles.find({userId: this.userId});
+});
+
 Meteor.publish('notifications', function() {
   return Notifications.find({userId: this.userId, read: false});
 });
 
-
+/*
 Meteor.publish( 'channel', function( isDirect, channel ) {
   check( isDirect, Boolean );
   check( channel, String );
@@ -51,3 +55,4 @@ Meteor.publish( 'channel', function( isDirect, channel ) {
     return Messages.find( { channel: selectedChannel._id } );
   }
 });
+*/

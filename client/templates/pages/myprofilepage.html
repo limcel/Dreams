@@ -56,62 +56,64 @@
         <br>
 
         <form class="form-horizontal" role="form">
-          <div class="form-group"> 
-            <label class="col-lg-3 control-label">First name:</label>
+         <div class="form-group"> 
+            <label class="col-lg-3 control-label" for="firstname">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="firstname" value="Jane">
+              <input name="firstname" id="firstname" type="text" class="form-control" value="Jane">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="lastname">Last name:</label>
+            <div class="col-lg-8">
+              <input name="lastname" id="lastname" class="form-control" type="text" value="Bishop">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
+            <label class="col-lg-3 control-label" for="company">Company:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="lastname" value="Bishop">
+              <input name="company" id="company" class="form-control" type="text" placeholder="fill in your company">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
+            <label class="col-lg-3 control-label" for="email">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="company" placeholder="fill in your company">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="email" value="janesemail@gmail.com">
+              <input name="email" id="email" class="form-control" type="text" value="janesemail@gmail.com">
             </div>
           </div>
            <div class="form-group">
-            <label class="col-lg-3 control-label">Short Description about myself:</label>
+            <label class="col-lg-3 control-label" for="shortdescription">Short Description about myself:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="description" placeholder="I have a strong interest in...">
+              <input name="shortdescription" id="shortdescription" class="form-control" type="text" placeholder="I have a strong interest in...">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
+            <label class="col-md-3 control-label" for="username">Username:</label>
             <div class="col-md-8">
-              <input class="form-control" type="username" value="janeuser">
+              <input name="username" id="username" class="form-control" type="text" value="janesuser">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
+            <label class="col-md-3 control-label" for="password">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input name="password" id="password" class="form-control" type="text" value="11111122333">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
+            <label class="col-md-3 control-label" for="confirmpassword">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input name="confirmpassword" id="confirmpassword" class="form-control" type="text" value="11111122333">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+               <input type="submit" id="send" value="Save Changes" class="btn btn-primary"/>
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancel">
             </div>
           </div>
+
         </form>
       </div>
   </div>

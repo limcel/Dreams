@@ -14,11 +14,7 @@ Template.myProfile.events({
       lastname: $(e.target).find('[name=lastname]').val(),
       company: $(e.target).find('[name=company]').val(),
       email: $(e.target).find('[name=email]').val(),
-      shortdescription: $(e.target).find('[name=shortdescription]').val(),
-      email: $(e.target).find('[name=email]').val(),
-      username: $(e.target).find('[name=username]').val(),
-      password: $(e.target).find('[name=password]').val(),
-      confirmpassword: $(e.target).find('[name=confirmpassword]').val(),
+      shortdescription: $(e.target).find('[name=shortdescription]').val()
     };
 /*
     var errors = validatePost(profile);
@@ -30,13 +26,11 @@ Template.myProfile.events({
      Meteor.call('profileInsert', profile, function(error, result) {
        // display the error to the user and abort
         if (error)
-       console.log(firstname);
-       console.log(lastname);
-       console.log(company);
-       console.log(email);
-       console.log(shortdescription);
-       console.log(username);
-       console.log(password);
+        console.log(profile.firstname);
+       console.log(profile.lastname);
+       console.log(profile.company);
+       console.log(profile.email);
+       console.log(profile.shortdescription);
  
          return throwError(error.reason); 
        

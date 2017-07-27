@@ -10,7 +10,6 @@ Template.myProfile.events({
   'submit form': function(e) {
     e.preventDefault();
     var profile = {
-      myImage: $(e.target).find('[name=myImage]').val(),
       firstname: $(e.target).find('[name=firstname]').val(),
       lastname: $(e.target).find('[name=lastname]').val(),
       company: $(e.target).find('[name=company]').val(),
@@ -23,6 +22,10 @@ Template.myProfile.events({
       return Session.set('myProfileErrors', errors);
     }
     */
+
+   // Meteor.call('checkUserProfile',Meteor.userId()) {
+
+      
 
      Meteor.call('profileInsert', profile, function(error, result) {
        // display the error to the user and abort
@@ -39,9 +42,9 @@ Template.myProfile.events({
          throwError('This link has already been posted'); //change this to update profile
   
         });
-
-  }
+ }
 });
+
 Template.myProfile.events({
 	"click button.upload": function(){
 		var files = $("input.file_bag")[0].files

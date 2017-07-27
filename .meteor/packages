@@ -30,3 +30,4 @@ shell-server
 dynamic-import
 aldeed:simple-schema
 aldeed:collection2
+lepozepo:s3

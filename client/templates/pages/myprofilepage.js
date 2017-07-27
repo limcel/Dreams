@@ -1,10 +1,12 @@
 Template.myProfile.helpers({
- posts: function() {
- 	return Posts.find({userId:this.userId});
- }
+
+  posts: function() {
+ 	  return Posts.find({userId:this.userId});
+  }
 });
 
 Template.myProfile.events({
+
   'submit form': function(e) {
     e.preventDefault();
     var post = {
@@ -18,7 +20,7 @@ Template.myProfile.events({
       password: $(e.target).find('[name=password]').val(),
       confirmpassword: $(e.target).find('[name=confirmpassword]').val(),
     };
-    
+
     var errors = validatePost(post);
     if (errors.firstname || errors.lastname || errors.email || errors.shortdescription || errors.username || errors.password) {
       return Session.set('myProfileErrors', errors);
@@ -26,4 +28,21 @@ Template.myProfile.events({
 
   }
 });
+Template.myProfile.events({
+	"click button.upload": function(){
+		var files = $("input.file_bag")[0].files
 
+		S3.upload({
+				files:files,
+				path:"subfolder"
+			},function(e,r){
+				console.log(r);
+		});
+	}
+})
+
+Template.myProfile.helpers({
+	"files": function(){
+		return S3.collection.find();
+	}
+})

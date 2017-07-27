@@ -1,4 +1,3 @@
-/* 
 Template.myProfile.helpers({
  profiles: function() {
  	return Profiles.find({userId:this.userId});
@@ -20,23 +19,23 @@ Template.myProfile.events({
       confirmpassword: $(e.target).find('[name=confirmpassword]').val()
     };
     
-    var errors = validateProfile(profile);
+   /* var errors = validateProfile(profile);
     if (errors.firstname || errors.lastname || errors.email || errors.shortdescription || errors.username || errors.password) {
       return Session.set('myProfileErrors', errors);
     }
-    
+*/    
 
 
      Meteor.call('profileInsert', profile, function(error, result) {
       // display the error to the user and abort
        if (error)
-      console.log(firstname);
-      console.log(lastname);
-      console.log(company);
-      console.log(email);
-      console.log(shortdescription);
-      console.log(username);
-      console.log(password);
+      console.log(profile.firstname);
+      console.log(profile.lastname);
+      console.log(profile.company);
+      console.log(profile.email);
+      console.log(profile.shortdescription);
+      console.log(profile.username);
+      console.log(profile.password);
 
         return throwError(error.reason); 
       
@@ -49,4 +48,3 @@ Template.myProfile.events({
   }
 });
 
-*/

@@ -29,8 +29,14 @@ Template.postSubmit.events({
     if (errors.category || errors.title || errors.summary || errors.introduction || errors.list) {
       return Session.set('postSubmitErrors', errors);
     }
-   
+
+      //console.log((Posts.find({userId: Meteor.userId()})).count());
+    
+
     Meteor.call('postInsert', post, function(error, result) {
+
+     // console.log((Posts.find({userId: this.userId})).count());
+
       // display the error to the user and abort
       if (error)
         return throwError(error.reason);
@@ -43,3 +49,4 @@ Template.postSubmit.events({
     });
   }
 });
+

@@ -23,9 +23,8 @@ Template.myProfile.events({
     }
     */
 
-   // Meteor.call('checkUserProfile',Meteor.userId()) {
-
-      
+    Meteor.call('checkUserProfile', Meteor.userId(), function(error,result) {
+      if (result == false) {
 
      Meteor.call('profileInsert', profile, function(error, result) {
        // display the error to the user and abort
@@ -42,6 +41,8 @@ Template.myProfile.events({
          throwError('This link has already been posted'); //change this to update profile
   
         });
+      }
+   });
  }
 });
 

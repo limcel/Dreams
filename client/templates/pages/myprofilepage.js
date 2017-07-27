@@ -42,6 +42,22 @@ Template.myProfile.events({
   
         });
       }
+      if (result === true) {
+        Meteor.call('updateProfile', profile, function(error,result){
+          // display the error to the user and abort
+        if (error)
+        console.log(profile.firstname);
+       console.log(profile.lastname);
+       console.log(profile.company);
+       console.log(profile.email);
+        console.log(error.reason);
+         return throwError(error.reason); 
+       
+       // show this result but route anyway
+
+          });
+
+      }
    });
  }
 });

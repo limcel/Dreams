@@ -10,11 +10,12 @@ Template.myProfile.events({
   'submit form': function(e) {
     e.preventDefault();
     var profile = {
+      myImage: $(e.target).find('[name=myImage]').val(),
       firstname: $(e.target).find('[name=firstname]').val(),
       lastname: $(e.target).find('[name=lastname]').val(),
       company: $(e.target).find('[name=company]').val(),
-      email: $(e.target).find('[name=email]').val(),
-      shortdescription: $(e.target).find('[name=shortdescription]').val()
+      email: $(e.target).find('[name=email]').val()
+      //shortdescription: $(e.target).find('[name=shortdescription]').val()
     };
 /*
     var errors = validatePost(profile);
@@ -30,7 +31,6 @@ Template.myProfile.events({
        console.log(profile.lastname);
        console.log(profile.company);
        console.log(profile.email);
-       console.log(profile.shortdescription);
  
          return throwError(error.reason); 
        

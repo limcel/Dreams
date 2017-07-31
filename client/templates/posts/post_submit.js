@@ -30,23 +30,27 @@ Template.postSubmit.events({
       return Session.set('postSubmitErrors', errors);
     }
 
-      //console.log((Posts.find({userId: Meteor.userId()})).count());
+    Meteor.call('checkUserProfile', Meteor.userId(), function(error,result) {
+      if (result == false) {
     
 
-    Meteor.call('postInsert', post, function(error, result) {
+      Meteor.call('postInsert', post, function(error, result) {
 
-     // console.log((Posts.find({userId: this.userId})).count());
-
-      // display the error to the user and abort
-      if (error)
-        return throwError(error.reason);
+        // display the error to the user and abort
+        if (error)
+          return throwError(error.reason);
       
-      // show this result but route anyway
-      if (result.postExists)
-        throwError('This link has already been posted');
+        // show this result but route anyway
+        if (result.postExists)
+          throwError('This link has already been posted');
 
-      Router.go('postPage', {_id: result._id});  
-    });
-  }
+        Router.go('postPage', {_id: result._id});  
+      });
+
+    }
+    else {
+      throwError('Invalid Post. You have an ongoing dream.')
+    }
+  });
+}
 });
-

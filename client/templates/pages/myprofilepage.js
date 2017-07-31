@@ -29,10 +29,10 @@ Template.myProfile.events({
      Meteor.call('profileInsert', profile, function(error, result) {
        // display the error to the user and abort
         if (error) {
-        console.log(profile.firstname);
-       console.log(profile.lastname);
-       console.log(profile.company);
-       console.log(profile.email);
+       // console.log(profile.firstname);
+       //console.log(profile.lastname);
+       //console.log(profile.company);
+       //console.log(profile.email);
         return throwError(error.reason); 
        }
        
@@ -46,13 +46,12 @@ Template.myProfile.events({
         Meteor.call('updateProfile', profile, function(error,result){
           // display the error to the user and abort
 
-
         if (error) {
-        console.log(profile.firstname);
-       console.log(profile.lastname);
-       console.log(profile.company);
-       console.log(profile.email);
-        console.log(error.reason);
+        //console.log(profile.firstname);
+       //console.log(profile.lastname);
+       //console.log(profile.company);
+       //console.log(profile.email);
+        //console.log(error.reason);
          return throwError(error.reason); 
        }
        

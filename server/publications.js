@@ -32,7 +32,7 @@ Meteor.publish('messages', function() {
   return Messages.find();
 });
 
-Meteor.publish('profiles', function() {
+Meteor.publish('profiles', function(userId) {
   return Profiles.find({userId: this.userId});
 });
 
